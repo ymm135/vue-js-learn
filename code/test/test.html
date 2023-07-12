@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    数据绑定: <input id="data-bind" type="text" v-bind:value="name"/>
+    双向数据绑定: <input id="data-bind" type="text" v-model:value="age"/>
+</div>
+<script type="text/javascript">
+    Vue.productionTip = false
+
+    const v = new Vue({
+        // el: '#root',
+        data: {
+            name: 'Hello Vue',
+            age: 18,
+            extra: {
+                urlData: 'http://google.com.hk',
+            }
+        }
+    });
+
+    v.$mount('#root')
+
+</script>
+</body>
+</html>
