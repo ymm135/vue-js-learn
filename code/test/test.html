@@ -7,24 +7,36 @@
 </head>
 <body>
 <div id="root">
-    数据绑定: <input id="data-bind" type="text" v-bind:value="name"/>
-    双向数据绑定: <input id="data-bind" type="text" v-model:value="age"/>
+    姓名: {{name}}
+    <p></p>
+    <button @click="showInfo">点我</button>
 </div>
 <script type="text/javascript">
-    Vue.productionTip = false
 
-    const v = new Vue({
-        // el: '#root',
-        data: {
-            name: 'Hello Vue',
-            age: 18,
-            extra: {
-                urlData: 'http://google.com.hk',
+    const funcA = () => {
+        console.log("funcA",this)
+    }
+
+    setTimeout(function (){
+        console.log('setTimeout',this)
+    },1000)
+
+    const vm = new Vue({
+        el: '#root',
+        data(){
+            return {
+                name: 'aabb',
+                age: 19
+            }
+        },
+        methods: {
+            showInfo:()=>{
+                console.log('aaaa',this)
             }
         }
-    });
+    })
 
-    v.$mount('#root')
+    console.log('aaa', vm)
 
 </script>
 </body>
