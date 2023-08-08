@@ -25,3 +25,20 @@ function log(){
 }
 
 callback(log)
+
+let tool = {}
+tool.name='工具'
+tool.getName = function (){
+    console.log(this)
+    console.log(this.name)
+}
+
+tool.getName()
+
+let wapper = {}
+wapper.call = function (func){
+    console.log("wapper call")
+    func()
+}
+
+wapper.call(tool.getName)
