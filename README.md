@@ -18,8 +18,7 @@ B站: https://www.bilibili.com/video/BV1Zy4y1K7SH
 ### [vue2 教程](code/vue/2_vue_test/README.md)
 ### [md 前端技术_Vue全家桶](md/vue3快速上手.md)
 
-idea 调试vue 
-
+### idea 调试vue, 可以debug js  
 <br>
 <div align=center>
 	<img src="res/images/idea-vue-debug.png" width="100%"></img>  
