@@ -553,7 +553,7 @@
           supportsPassive = true;
         }
       })); // https://github.com/facebook/flow/issues/285
-      window.addEventListener('test-passive', null, opts);
+      window.addEventListener('node-passive', null, opts);
     } catch (e) {}
   }
 
@@ -7206,12 +7206,12 @@
    *
    * Possible cases:
    *
-   * - test
-   * - test[key]
-   * - test[test1[key]]
-   * - test["a"][key]
-   * - xxx.test[a[a].test1[key]]
-   * - test.xxx.a["asa"][test1[key]]
+   * - node
+   * - node[key]
+   * - node[test1[key]]
+   * - node["a"][key]
+   * - xxx.node[a[a].test1[key]]
+   * - node.xxx.a["asa"][test1[key]]
    *
    */
 

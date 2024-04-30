@@ -18,11 +18,51 @@ B站: https://www.bilibili.com/video/BV1Zy4y1K7SH
 ### [vue2 教程](code/vue/2_vue_test/README.md)
 ### [md 前端技术_Vue全家桶](md/vue3快速上手.md)
 
+### 关系图
+**生命周期**
+<br>
+<div align=center>
+	<img src="res/images/vue生命周期.png" width="80%"></img>  
+</div>
+<br>
+
+指令语法
+<br>
+<div align=center>
+	<img src="res/images/指令语法.png" width="80%"></img>  
+</div>
+<br>
+
+<br>
+<div align=center>
+	<img src="res/images/vc-vm关系.png" width="100%"></img>  
+</div>
+<br>
+> vm与vc之间的关系
+
+组件概念
+<br>
+<div align=center>
+	<img src="res/images/组件概念.png" width="100%"></img>  
+</div>
+<br>
+
 ### idea 调试vue, 可以debug js  
 <br>
 <div align=center>
 	<img src="res/images/idea-vue-debug.png" width="100%"></img>  
 </div>
 <br>
+
+## 疑问拓展
+### 去掉eslint
+```shell
+npm remove @vue/cli-plugin-eslint
+```
+
+### 缺少less-loader  
+```shell
+npm i less-loader less
+```
 
 # WebPack 

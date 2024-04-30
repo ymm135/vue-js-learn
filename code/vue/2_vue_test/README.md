@@ -261,18 +261,33 @@
    4. 提供数据：```pubsub.publish('xxx',数据)```
 
    5. 最好在beforeDestroy钩子中，用```PubSub.unsubscribe(pid)```去<span style="color:red">取消订阅。</span>
-	
+
+    > 引用`pubsub-js`时没有函数提示，重启打开编辑器就好了。  	
+
 ## nextTick
 
 1. 语法：```this.$nextTick(回调函数)```
 2. 作用：在下一次 DOM 更新结束后执行其指定的回调。
 3. 什么时候用：当改变数据后，要基于更新后的新DOM进行某些操作时，要在nextTick所指定的回调函数中执行。
 
+> 比如更新数据后，需要聚焦焦点  
+```javascript
+this.$nextTick(function(){
+    this.$refs.inputTitle.focus()
+})
+```
+
 ## Vue封装的过度与动画
 
 1. 作用：在插入、更新或移除 DOM元素时，在合适的时候给元素添加样式类名。
 
-2. 图示：<img src="https://img04.sogoucdn.com/app/a/100520146/5990c1dff7dc7a8fb3b34b4462bd0105" style="width:60%" />
+2. 图示：
+
+<br>
+<div align=center>
+	<img src="../../../res/images/过度动画.png" width="60%"></img>  
+</div>
+<br>
 
 3. 写法：
 
@@ -347,6 +362,17 @@ module.exports = {
 
 1. 优点：可以配置多个代理，且可以灵活的控制请求是否走代理。
 2. 缺点：配置略微繁琐，请求资源时必须加前缀。
+
+### node express 服务器搭建
+使用idea直接创建express项目，默认访问地址:`http://localhost:3000/`  
+
+`http://localhost:3000/users`, 返回`{"user":"xiaoming","age":18}`  
+
+<br>
+<div align=center>
+	<img src="../../../res/images/axios代理设置.png" width="100%"></img>  
+</div>
+<br>
 
 ## 插槽
 
@@ -453,6 +479,53 @@ module.exports = {
 ​		多个组件需要共享数据时
 
 ### 3.搭建vuex环境
+
+核心插件
+- Vue Router  为 Vue.js 提供富有表现力、可配置的、方便的路由
+- Vuex Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式 + 库。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。  
+- SSR 服务器端渲染  
+
+什么情况下应用vuex  
+- 多个视图依赖于同一状态。  
+- 来自不同视图的行为需要变更同一状态。  
+
+<br>
+<div align=center>
+	<img src="../../../res/images/vuex.png" width="80%"></img>  
+</div>
+<br>
+
+需要安装指定版本:
+```shell
+npm view vuex versions
+
+[
+  '0.1.0',        '0.2.0',        '0.3.0',        '0.4.0',
+  '0.4.1',        '0.4.2',        '0.5.0',        '0.5.1',
+  '0.6.1',        '0.6.2',        '0.6.3',        '0.7.0',
+  '0.7.1',        '0.8.0',        '0.8.1',        '0.8.2',
+  '1.0.0-rc',     '1.0.0-rc.2',   '1.0.0',        '1.0.1',
+  '2.0.0-rc.1',   '2.0.0-rc.3',   '2.0.0-rc.4',   '2.0.0-rc.5',
+  '2.0.0-rc.6',   '2.0.0',        '2.1.0',        '2.1.1',
+  '2.1.2',        '2.1.3',        '2.2.0',        '2.2.1',
+  '2.3.0',        '2.3.1',        '2.4.0',        '2.4.1',
+  '2.5.0',        '3.0.0',        '3.0.1',        '3.1.0',
+  '3.1.1',        '3.1.2',        '3.1.3',        '3.2.0',
+  '3.3.0',        '3.4.0',        '3.5.0',        '3.5.1',
+  '3.6.0',        '3.6.1',        '3.6.2',        '4.0.0-alpha.1',
+  '4.0.0-beta.1', '4.0.0-beta.2', '4.0.0-beta.3', '4.0.0-beta.4',
+  '4.0.0-rc.1',   '4.0.0-rc.2',   '4.0.0',        '4.0.1',
+  '4.0.2',        '4.1.0'
+]
+
+vuex@4.1.0 requires a peer of vue@^3.2.0 but none is installed. 
+```
+
+安装指定版本
+```shell
+yarn add vue-loader@15   
+yarn add vuex@3.6.2  
+```
 
 1. 创建文件：```src/store/index.js```
 

@@ -1,47 +1,46 @@
 <template>
-  <div class="hello">
-    <h2 @click="showName">提示信息: {{tips}}</h2>
-    <h1>{{ msg }}</h1>
+  <div>
+    <el-input
+        type="textarea"
+        :rows="2"
+        placeholder="请输入内容"
+        v-model="textValue">
+    </el-input>
+    <el-button type="primary" @click="getText">加载数据</el-button>
   </div>
 </template>
 
 <script>
-
-import mixin from "@/mixin";
-
 export default {
-  name: 'HelloWorld',
-  props: {
-    tips: String
-  },
   data() {
     return {
-      msg: "Hello Vue"
+      name: '',
+      age:0,
     }
   },
-  methods:{
-    showName(){
-      alert(this.msg)
-    }
+  computed: {
+      textValue(){
+        return this.name + '_哈哈_'+this.age
+      }
   },
-  mixins:[mixin]
-}
+  methods: {
+    getText() {
+      // http://localhost:3000/users
+      let url = '/demo/users';
+      this.$axios.get(url)
+          .then(response => {
+            console.log(response.data);
+            this.name = response.data.user
+            this.age = response.data.age
+          })
+          .catch(error => {
+            // handle error
+            console.log(error);
+          })
+          .finally(function () {
+            // always executed
+          });
+    }
+  }
+};
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
